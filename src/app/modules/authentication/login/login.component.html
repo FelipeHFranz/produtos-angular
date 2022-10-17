@@ -1,0 +1,46 @@
+
+
+<div style=" padding-top: 10%;"> 
+   <mat-card *ngIf="isLogged()">
+      <mat-card-title>Autenticação</mat-card-title>
+      <mat-card-subtitle>Atualmente você está conectado. se você quiser encerrar sua sessão, clique em sair.</mat-card-subtitle>
+      <mat-card-actions>
+         <button mat-button color="warn" (click)="logout()">Sair</button>
+         <button mat-button [routerLink]="['/']">Home</button>
+      </mat-card-actions>
+   </mat-card>
+   
+   <mat-card *ngIf="!isLogged()">
+      <mat-card-title>Autenticação</mat-card-title>
+    
+         <mat-card-content>
+            <form class="my-form" [formGroup]="loginForm">
+               <mat-form-field class="full-width">
+                  <mat-label>Usuário</mat-label>
+                  <input matInput type="text" placeholder="Informe o email" formControlName="username">
+                  <mat-error *ngIf="hasError('username', 'required')">Informe o email</mat-error>
+               </mat-form-field>
+   
+               <mat-form-field class="full-width">
+                  <mat-label>Senha</mat-label>
+                  <input matInput placeholder="Informe a senha" type="password" formControlName="password" (keyup.enter)="login()">
+                  <mat-error *ngIf="hasError('password', 'required')">Informe a senha</mat-error>
+               </mat-form-field>
+            </form>
+         </mat-card-content>
+      
+   
+      <mat-card-actions style="text-align: center;">
+         <button mat-flat-button class="btn-login" (click)="login()" color="primary" [disabled]="!loginForm.valid" 
+            matTooltip="Clique para logar">
+            Login
+         </button>
+   
+      </mat-card-actions>
+   
+      <mat-card-footer>
+         <button mat-button routerLink="/auth/cadastro">Cadastrar</button>
+      </mat-card-footer>
+   
+   </mat-card>
+</div>

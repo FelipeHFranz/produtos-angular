@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>
+    <div class="dialog-close-button">
+      <button mat-icon-button (click)="dialogRef.close()" tabindex="-1">
+        <mat-icon aria-hidden="false">close</mat-icon>
+      </button>
+    </div>
+    Alterar senha</h1>
+  
+  <div mat-dialog-content>
+    
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Senha Atual" [(ngModel)]="actualPassword" [type]="hidePassword ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+      <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Nova senha" [(ngModel)]='newPassword' [type]="hideNewPassword ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hideNewPassword = !hideNewPassword">
+      <mat-icon>{{hideNewPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" [disabled]="actualPassword==null||newPassword==null" (click)="changePassword()">Alterar</button>
+  </div>

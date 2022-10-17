@@ -1,0 +1,47 @@
+<div style="height: 100%; width: 100%;">
+
+  <mat-toolbar color="primary">
+    
+    My App
+   
+
+
+    <span style="flex: 1 1 auto;"></span>
+ 
+
+
+
+    <a mat-button href="javascript:void(0)" [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+      <span class="align-middle">{{ user?.nome.split(' ')[0] }}</span>
+    </a>
+
+
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
+
+
+
+
+
+</div>
+
+<mat-menu #menu="matMenu">
+    <button (click)="userDetails()" mat-menu-item>
+      <mat-icon>account_circle</mat-icon>
+      <span>Usuário</span>
+    </button>
+    <button (click)="alterarSenha()" mat-menu-item>
+      <mat-icon>key</mat-icon>
+      <span>Alterar Senha</span>
+    </button>
+    
+  
+    <button (click)="logout()" mat-menu-item>
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Logout</span>
+    </button>
+  
+  </mat-menu>
+  

@@ -1,0 +1,31 @@
+
+mat-card{ 
+    width: 35%;
+    margin: 0 auto; 
+    border-left: rgba(3, 3, 3, 0.479) 5px solid;
+  }
+  
+  .mat-card-error:hover{
+    -webkit-animation: swing 1s ease;
+    animation: swing 1s ease;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }
+  
+  .my-form{
+      width: 100%;
+      align-content: center;
+      margin: 10px auto;
+  }
+     
+  .full-width {
+    width: 80%;
+    padding-left: 6%;
+  }
+    
+  
+  .btn-login{
+    width: 25%;
+  }
+  
+  
